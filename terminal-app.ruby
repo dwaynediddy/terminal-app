@@ -3,7 +3,7 @@ require "colorize"
 require "tty-table"
 require_relative "./customer/customer.rb"
 require_relative "./customer/item.rb"
-require_relative "./customer/list.rb"
+#require_relative "./customer/list.rb" unable to require successfully
 
 puts"
 /$$$$$$$  /$$       /$$       /$$                                     /$$                          
