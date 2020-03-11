@@ -1,6 +1,6 @@
 #diddys market
 require "colorize"
-require "tty-table"
+# require "tty-table"
 
 puts"
 /$$$$$$$  /$$       /$$       /$$                                     /$$                          
@@ -41,6 +41,9 @@ class Customer
     def initialize(customer, item)
         @customer = customer[:customer]
         @item = item
+        @price = customer[:price]
+        @done = customer[:done]
+        @fail = customer[:fail]
     end
     def greet_customer
         puts "hello #{@customer} i hear you're after a pair of #{@item.name} great choice " #randomize choice of customer and item
@@ -50,7 +53,11 @@ class Customer
         puts   puts "how much do you want to offer #{@customer}"
         offer = gets.chomp
         puts "#{@customer} ill give you the #{@item.name} at the price $#{offer}"
-        
+        if offer.to_i >= @item.price + @price
+            puts @fail
+        else  
+             puts @done
+         end
     end
     def price_check
         puts  "here are the retail price. anything above is comission!"
@@ -80,15 +87,15 @@ end
 
 list = [{
     name: 'converse',
-    price: "$100"
+    price: 100
     },
     {
     name: "jordans",
-    price: "$150"
+    price: 150
     },
     {
     name: "timberlands",
-    price: "$200"
+    price: 200
     }]
      #also want a unique price for each item
  
@@ -99,20 +106,18 @@ item1.start_sale
 #customer_list = ["Big Poppa", "Swaggy P", "Jezenizzle fo shizzle"]
 #turn this into a hash similar to the items/price?
 customer_list = [{
-    # if offer < price 
-    #     puts"helluva deal ill take it!"
-    # elsif offer >= price + 101
-    #     puts "you outside of your mind"
-    # end
-    customer: "Big Poppa"
-    # if offer =+50 == true
-    #      puts "ill take it!"
-    # else puts "no way pal"
-    # end
+
+    customer: "Big Poppa",
+    price: 40,
+    done: "yeah ill take those i got that full-stack dev money",
+    fail: "you think i fell off the turnip truck yesterday!"
 
     }, 
     {
-    customer: "Swaggy P"
+    customer: "Swaggy P",
+    price: 70,
+    done: "yeah ill take those i got that full-stack dev money",
+    fail: "you think i fell off the turnip truck yesterday!"
     # if offer price =+70 == true
     #      puts "yeah gimme those kicks"
     #  else puts "no chance chump"
@@ -120,19 +125,17 @@ customer_list = [{
 
     },
     {
-    customer: "Jezenizzle fo shizzle"
+    customer: "Jezenizzle fo shizzle",
+    price: 90,
+    done: "yeah ill take those i got that full-stack dev money",
+    fail: "you think i fell off the turnip truck yesterday!"
+    }
     #offer: #base price =+90 == true puts "yeah ill take those i got that full-stack dev money" 
     #else puts "you think i fell off the turnip truck yesterday!"
 
-    }]
+]
 
-    def negotiations
-        if offer =+ item.price + 101 == true
-           puts "you must be outside your mind"
-        elsif offer =- item.price 
-            puts "thats a helluva deal, ill take it!"
-        end
-    end
+
 customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
 # customer1.greet_customer
 # puts list
@@ -153,4 +156,4 @@ item1.price_check
 # client = Client.new(customer_list, list)   
 customer1.offer_price
 
-negotiations
+# negotiations_with_customers

@@ -1,0 +1,5 @@
+move files outside of main.rb
+
+move list and customer list to another file
+
+turn single game into a game with 5 turns

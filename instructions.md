@@ -21,3 +21,10 @@ the customer will accept or walk away
 Good luck!
 
 ---
+
+- steps to install the application 
+
+
+- any dependencies required by the application to operate
+
+ruby gem colorize
