@@ -28,7 +28,7 @@ puts "enter your name: "
     #1 option for instructions
     #another option for "start game"
     #will need to write a menu
-    #options to go into start game , instructions
+    #options to go into start game , instructions: sprinkle
     
     #add instructions other wise start the game
 
