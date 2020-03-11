@@ -34,14 +34,27 @@ puts "enter your name: "
 
 puts "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"
 
-#want to have player press a key to continue
+#want to have player press a key to continue: sprinkle
 
 class Customer
-    def initialize(customer1)
-        @customer = customer1
+    attr_reader :customer
+    def initialize(customer, item)
+        @customer = customer[:customer]
+        @item = item
     end
-    def greet_customer(item)
-        puts "hello #{@customer} i hear you're after a pair of #{item} great choice " #randomize choice of customer and item
+    def greet_customer
+        puts "hello #{@customer} i hear you're after a pair of #{@item.name} great choice " #randomize choice of customer and item
+    end
+
+    def offer_price
+        puts   puts "how much do you want to offer #{@customer}"
+        offer = gets.chomp
+        puts "#{@customer} ill give you the #{@item.name} at the price #{offer}"
+        
+    end
+    def price_check
+        puts  "here are the retail price. anything above is comission!"
+        puts "#{@item.name} retail value is #{@item.name}" #allow user to pick a price between -99 & +101
     end
 end
 
@@ -55,27 +68,24 @@ class Item
         puts "a customer walks in, They want some #{@name}" 
     end
     def price_check
-        puts  "here are the retail prices. anything above is comission!"
-        puts "#{@name} retail value is #{@price}"
+        puts  "here are the retail price. anything above is comission!"
+        puts "#{@name} retail value is #{@price}" #allow user to pick a price between -99 & +101
     end
 end
 
+
 # class Price #each item needs to be assigned a base price which can be "negotiated" by the user
-#     attr_reader :cost
-#     def initialize(price)
-#         @cost = price
-#     end
-# end
+
 
 list = [{
     name: 'converse',
     price: "$100"
     },
-        {
+    {
     name: "jordans",
     price: "$150"
-        },
-        {
+    },
+    {
     name: "timberlands",
     price: "$200"
     }]
@@ -85,21 +95,40 @@ list = [{
 item1 = Item.new(list[rand(0...list.length)])
 item1.start_sale
 
-customer_list = ["Big Poppa", "Swaggy P", "Jezenizzle fo shizzle"]
+#customer_list = ["Big Poppa", "Swaggy P", "Jezenizzle fo shizzle"]
+#turn this into a hash similar to the items/price?
+customer_list = [{
+    customer: "Big Poppa"
+    #offer: #base price =+50 == true puts "ill take it!" else puts "no way pal"
+    }, 
+    {
+    customer: "Swaggy P"
+    #offer: #base price =+70 == true puts "yeah gimme those kicks" else puts "no chance chump"
 
-customer1 = Customer.new(customer_list[rand(0...list.length)])
-customer1.greet_customer(item1.name)
+    },
+    {
+    customer: "Jezenizzle fo shizzle"
+    #offer: #base price =+90 == true puts "yeah ill take those i got that full-stack dev money" 
+    #else puts "you think i fell off the turnip truck yesterday!"
 
-# price = Price .new(list[0])
+    }]
+
+customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
+# customer1.greet_customer
+puts list
+puts customer_list
+
+
 item1.price_check
 
-#fsdgfdhsjdshgskh
-#show user base prices. sprinkle put it in a table if possible
+#show user base prices. 
 
-  
+  #after base price how much would user want to charge
+  #from -99 to +101 will gets then charge NPC will accept or declice based on there price acceptance
 
         #character attributes 1 price equal or over up until 25
         #character attributes 1 price equal or over up until 50
-        #character attributes 1 price equal or over up unyil 90..
+        #character attributes 1 price equal or over up unyil 90...
 
-        
+# client = Client.new(customer_list, list)   
+customer1.offer_price
