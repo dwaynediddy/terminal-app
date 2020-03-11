@@ -1,18 +1,16 @@
-require_relative "../customer.rb"
-
 customer_list = [{
 
     customer: "Big Poppa",
     price: 40,
-    done: "for sure give me those",
-    fail: "are you crazy! nope"
+    done: "for sure ill take that!",
+    fail: "you think im made of money?! no way"
 
     }, 
     {
     customer: "Swaggy P",
     price: 70,
-    done: "helluva deal ill take em",
-    fail: "you must be outside your mind! no chance"
+    done: "helluva deal ill take those!",
+    fail: "you must be outside your mind!"
     # if offer price =+70 == true
     #      puts "yeah gimme those kicks"
     #  else puts "no chance chump"
@@ -25,6 +23,7 @@ customer_list = [{
     done: "yeah ill take those i got that full-stack dev money",
     fail: "you think i fell off the turnip truck yesterday!"
     }
-    
+    #offer: #base price =+90 == true puts "yeah ill take those i got that full-stack dev money" 
+    #else puts "you think i fell off the turnip truck yesterday!"
 
 ]
