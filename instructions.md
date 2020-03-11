@@ -23,7 +23,7 @@ Good luck!
 ---
 
 - steps to install the application 
-
+open terminal
 
 - any dependencies required by the application to operate
 
