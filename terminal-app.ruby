@@ -1,6 +1,7 @@
 #diddys market
 require "colorize"
 require "tty-table"
+require_relative "./customer/customer.rb"
 
 puts"
 /$$$$$$$  /$$       /$$       /$$                                     /$$                          
@@ -36,34 +37,34 @@ puts "ok, remember to try make as much money as you can without losing the custo
 
 #want to have player press a key to continue: sprinkle
 
-class Customer
-    attr_reader :customer
-    def initialize(customer, item)
-        @customer = customer[:customer]
-        @item = item
-        @price = customer[:price]
-        @done = customer[:done]
-        @fail = customer[:fail]
-    end
-    def greet_customer
-        puts "hello #{@customer} i hear you're after a pair of #{@item.name} great choice " #randomize choice of customer and item
-    end
+# class Customer
+#     attr_reader :customer
+#     def initialize(customer, item)
+#         @customer = customer[:customer]
+#         @item = item
+#         @price = customer[:price]
+#         @done = customer[:done]
+#         @fail = customer[:fail]
+#     end
+#     def greet_customer
+#         puts "hello #{@customer} i hear you're after a pair of #{@item.name} great choice " #randomize choice of customer and item
+#     end
 
-    def offer_price
-        puts   puts "how much do you want to offer #{@customer}"
-        offer = gets.chomp
-        puts "#{@customer} ill give you the #{@item.name} at the price $#{offer}"
-        if offer.to_i >= @item.price + @price
-            puts @fail
-        else  
-             puts @done
-         end
-    end
-    def price_check
-        puts  "here are the retail price. anything above is comission!"
-        puts "#{@item.name} retail value is #{@item.name}" #allow user to pick a price between -99 & +101
-    end
-end
+#     def offer_price
+#         puts   puts "how much do you want to offer #{@customer}"
+#         offer = gets.chomp
+#         puts "#{@customer} ill give you the #{@item.name} at the price $#{offer}"
+#         if offer.to_i >= @item.price + @price
+#             puts @fail
+#         else  
+#              puts @done
+#          end
+#     end
+#     def price_check
+#         puts  "here are the retail price. anything above is comission!"
+#         puts "#{@item.name} retail value is #{@item.name}" #allow user to pick a price between -99 & +101
+#     end
+# end
 
 class Item 
     attr_reader :name, :price
