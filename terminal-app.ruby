@@ -49,7 +49,7 @@ class Customer
     def offer_price
         puts   puts "how much do you want to offer #{@customer}"
         offer = gets.chomp
-        puts "#{@customer} ill give you the #{@item.name} at the price #{offer}"
+        puts "#{@customer} ill give you the #{@item.name} at the price $#{offer}"
         
     end
     def price_check
@@ -70,6 +70,7 @@ class Item
     def price_check
         puts  "here are the retail price. anything above is comission!"
         puts "#{@name} retail value is #{@price}" #allow user to pick a price between -99 & +101
+        #if non numeric value is entered run error and ask again
     end
 end
 
@@ -98,12 +99,24 @@ item1.start_sale
 #customer_list = ["Big Poppa", "Swaggy P", "Jezenizzle fo shizzle"]
 #turn this into a hash similar to the items/price?
 customer_list = [{
+    # if offer < price 
+    #     puts"helluva deal ill take it!"
+    # elsif offer >= price + 101
+    #     puts "you outside of your mind"
+    # end
     customer: "Big Poppa"
-    #offer: #base price =+50 == true puts "ill take it!" else puts "no way pal"
+    # if offer =+50 == true
+    #      puts "ill take it!"
+    # else puts "no way pal"
+    # end
+
     }, 
     {
     customer: "Swaggy P"
-    #offer: #base price =+70 == true puts "yeah gimme those kicks" else puts "no chance chump"
+    # if offer price =+70 == true
+    #      puts "yeah gimme those kicks"
+    #  else puts "no chance chump"
+    #  end
 
     },
     {
@@ -113,10 +126,17 @@ customer_list = [{
 
     }]
 
+    def negotiations
+        if offer =+ item.price + 101 == true
+           puts "you must be outside your mind"
+        elsif offer =- item.price 
+            puts "thats a helluva deal, ill take it!"
+        end
+    end
 customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
 # customer1.greet_customer
-puts list
-puts customer_list
+# puts list
+# puts customer_list
 
 
 item1.price_check
@@ -132,3 +152,5 @@ item1.price_check
 
 # client = Client.new(customer_list, list)   
 customer1.offer_price
+
+negotiations
