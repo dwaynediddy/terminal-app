@@ -29,9 +29,11 @@ class Customer
         else  
              puts @done
         end
+        puts " "
         50.times { progressbar.increment; sleep 0.01 };
-
+        puts " "
     end
+    puts " "
     def price_check
 
         puts  "here are the retail price. anything above is comission!"
