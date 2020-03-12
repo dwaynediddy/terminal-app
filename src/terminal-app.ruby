@@ -4,6 +4,7 @@ require "tty-table"
 require_relative "./customer/customer.rb"
 require_relative "./customer/item.rb"
 #require_relative "./customer/list.rb" unable to require
+#require_relative "./customer/customer_list.rb" unable to require
 
 puts"
 /$$$$$$$  /$$       /$$       /$$                                     /$$                          
@@ -23,7 +24,7 @@ puts"
 puts "Time to get to work! grab your name tag"
 puts "enter your name: "
     name = gets.chomp
-    system("clear")
+    
     puts "Your shift is about to start #{name}!"     
     # table = TTY::Table.new ['header1','header2'], [['a1', 'a2'], ['b1', 'b2']]
     # table.render(:ascii)
@@ -88,9 +89,6 @@ customer_list = [{
     done: "yeah ill take those i got that full-stack dev money",
     fail: "you think i fell off the turnip truck yesterday!"
     }
-    #offer: #base price =+90 == true puts "yeah ill take those i got that full-stack dev money" 
-    #else puts "you think i fell off the turnip truck yesterday!"
-
 ]
 
 
@@ -102,14 +100,7 @@ customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
 
 item1.price_check
 
-#show user base prices. 
 
-  #after base price how much would user want to charge
-  #from -99 to +101 will gets then charge NPC will accept or declice based on there price acceptance
-
-        #character attributes 1 price equal or over up until 25
-        #character attributes 1 price equal or over up until 50
-        #character attributes 1 price equal or over up unyil 90...
 
 # client = Client.new(customer_list, list)   
 customer1.offer_price

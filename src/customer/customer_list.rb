@@ -22,8 +22,4 @@ customer_list = [{
     price: 90,
     done: "yeah ill take those i got that full-stack dev money",
     fail: "you think i fell off the turnip truck yesterday!"
-    }
-    #offer: #base price =+90 == true puts "yeah ill take those i got that full-stack dev money" 
-    #else puts "you think i fell off the turnip truck yesterday!"
-
-]
+    }]

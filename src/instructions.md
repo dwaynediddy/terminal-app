@@ -26,5 +26,4 @@ Good luck!
 open terminal
 
 - any dependencies required by the application to operate
-
 ruby gem colorize
