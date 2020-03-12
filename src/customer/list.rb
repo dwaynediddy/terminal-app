@@ -1,16 +1,16 @@
 def list
     return [{
-        name: 'converse',
+        name: 'converse'.colorize(:light_blue),
         price: 100
         },
-        {345
-        name: "jordans",
+        {
+        name: "jordans".colorize(:red),
         price: 150
         },
         {
-        name: "timberlands",
+        name: "timberlands".colorize(:yellow),
         price: 200
         }]
 end
-     #also want a unique price for each item
+     
 

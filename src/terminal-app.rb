@@ -24,20 +24,20 @@ puts ""
 puts "enter your name: "
     name = gets.chomp
     puts ""
-    puts "Your shift is about to start #{name}!"     
+    puts "Your shift is about to start #{name.colorize(:color => :red, :background => :yellow)}!"     
     puts ""
 #want to have player press a key to continue: sprinkle
-# message = "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"    #Can be anything you want to display
-# def pause(message)
-#     puts message
-#     pausing = true
-#     while pausing == true
-#         if gets
-#             pausing = false
-#         end
-#     end
-#     system "clear"
-# end
+message = "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"    #Can be anything you want to display
+def pause(message)
+    puts message
+    pausing = true
+    while pausing == true
+        if gets
+            pausing = false
+        end
+    end
+    system "clear"
+end
 
 5.times{
     item1 = Item.new(list[rand(0...list.length)])
