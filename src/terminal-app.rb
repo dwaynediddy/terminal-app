@@ -1,5 +1,7 @@
 #diddys market
 require "colorize"
+require 'ruby-progressbar'
+require 'tty-font'
 require_relative "./customer/customer.rb"
 require_relative "./customer/item.rb"
 require_relative "./customer/list.rb" 
@@ -19,12 +21,18 @@ puts"
                                    \______/                                               |__/ 
 ".colorize(:green)
 
+font = TTY::Font.new(:doom)
+puts font.write("diddys shop").colorize(:green)
+
 puts "Time to get to work! grab your name tag"
 puts ""
 puts "enter your name: "
     name = gets.chomp
     puts ""
     puts "Your shift is about to start #{name.colorize(:color => :red, :background => :yellow)}!"     
+    puts ""
+    progressbar = ProgressBar.create
+    50.times { progressbar.increment; sleep 0.05 };
     puts ""
 #want to have player press a key to continue: sprinkle
 message = "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"    #Can be anything you want to display
@@ -41,11 +49,11 @@ end
 
 5.times{
     item1 = Item.new(list[rand(0...list.length)])
-item1.start_sale
+    item1.start_sale
 
-customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
+    customer1 = Customer.new(customer_list[rand(0...list.length)], item1)
 
-item1.price_check
- 
-customer1.offer_price
+    item1.price_check
+
+    customer1.offer_price
 }
