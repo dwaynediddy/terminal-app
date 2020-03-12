@@ -1,6 +1,5 @@
 #diddys market
 require "colorize"
-require "tty-table"
 require_relative "./customer/customer.rb"
 require_relative "./customer/item.rb"
 #require_relative "./customer/list.rb" unable to require
@@ -26,20 +25,24 @@ puts "enter your name: "
     name = gets.chomp
     
     puts "Your shift is about to start #{name}!"     
-    # table = TTY::Table.new ['header1','header2'], [['a1', 'a2'], ['b1', 'b2']]
-    # table.render(:ascii)
     
-    #1 option for instructions
-    #another option for "start game"
-    #will need to write a menu
-    #options to go into start game , instructions: sprinkle
     
     #add instructions other wise start the game
 
 puts "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"
 
 #want to have player press a key to continue: sprinkle
-
+message = "Press enter to continue"    #Can be anything you want to display
+def pause(message)
+    puts message
+    pausing = true
+    while pausing == true
+        if gets
+            pausing = false
+        end
+    end
+    system "clear"
+end
 
 
 
