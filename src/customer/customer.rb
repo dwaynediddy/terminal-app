@@ -14,6 +14,10 @@ class Customer
     def offer_price
         puts   puts "how much do you want to offer #{@customer}"
         offer = gets.chomp
+        while offer.to_i.to_s != offer
+            puts "how much do you want to offer #{@customer}"
+            offer = gets.chomp
+        end
         puts "#{@customer} ill give you the #{@item.name} at the price $#{offer}"
         if offer.to_i >= @item.price + @price
             puts @fail
