@@ -1,3 +1,4 @@
+require 'ruby-progressbar'
 def customer_list 
     return [{
 
@@ -5,7 +6,7 @@ def customer_list
     price: 40,
     done: "for sure ill take that!",
     fail: "you think im made of money?! no way"
-
+   
     }, 
     {
     customer: "Swaggy P".colorize(:red),
@@ -21,3 +22,5 @@ def customer_list
     fail: "you think i fell off the turnip truck yesterday!"
     }]
     end
+
+   

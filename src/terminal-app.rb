@@ -22,7 +22,7 @@ puts"
 ".colorize(:green)
 
 font = TTY::Font.new(:doom)
-puts font.write("diddys shop").colorize(:green)
+puts font.write("welcome").colorize(:green)
 
 puts "Time to get to work! grab your name tag"
 puts ""
@@ -32,20 +32,20 @@ puts "enter your name: "
     puts "Your shift is about to start #{name.colorize(:color => :red, :background => :yellow)}!"     
     puts ""
     progressbar = ProgressBar.create
-    50.times { progressbar.increment; sleep 0.05 };
+    50.times { progressbar.increment; sleep 0.01 };
     puts ""
 #want to have player press a key to continue: sprinkle
 message = "ok, remember to try make as much money as you can without losing the customer! (press ... to continue)"    #Can be anything you want to display
-def pause(message)
-    puts message
-    pausing = true
-    while pausing == true
-        if gets
-            pausing = false
-        end
-    end
-    system "clear"
-end
+# def pause(message)
+#     puts message
+#     pausing = true
+#     while pausing == true
+#         if gets
+#             pausing = false
+#         end
+#     end
+#     system "clear"
+# end
 
 5.times{
     item1 = Item.new(list[rand(0...list.length)])

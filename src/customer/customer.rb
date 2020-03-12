@@ -1,3 +1,5 @@
+require 'ruby-progressbar'
+
 class Customer
     attr_reader :customer
     def initialize(customer, item)
@@ -12,6 +14,7 @@ class Customer
     end
 
     def offer_price
+        progressbar = ProgressBar.create
         puts   puts "how much do you want to offer #{@customer}"
         offer = gets.chomp
         while offer.to_i.to_s != offer
@@ -25,7 +28,9 @@ class Customer
             puts @fail
         else  
              puts @done
-         end
+        end
+        50.times { progressbar.increment; sleep 0.01 };
+
     end
     def price_check
 
