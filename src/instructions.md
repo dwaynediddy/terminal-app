@@ -23,7 +23,11 @@ Good luck!
 ---
 
 - steps to install the application 
-open terminal
+pull from github
+run in terminal kapeesh
+
 
 - any dependencies required by the application to operate
 ruby gem colorize
+ruby-progressbar
+ruby tty-font
